@@ -106,15 +106,17 @@
 <body>
     <div class="container">
         <h1>Hello World!</h1>
-        <form class="search-form">
-            <input type="text" placeholder="Song Artist" id="artist">
-            <input type="text" placeholder="Song Title" id="title">
+        <form class="search-form" id="searchForm">
+            <input type="text" placeholder="Song Artist" id="artist" name="artist">
+            <input type="text" placeholder="Song Title" id="title" name="title">
             <button type="submit">Search</button>
         </form>
         <div class="results-container" id="results">
             <!-- Query results will be rendered here -->
         </div>
     </div>
+    
+    <script src="/js/search.js"></script>
 </body>
 </html>
 
