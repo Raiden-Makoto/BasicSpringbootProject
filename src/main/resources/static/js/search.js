@@ -26,9 +26,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 
                 const data = await response.json();
-                resultsContainer.innerHTML = '<p>' + data.result + '</p>';
+                
+                // Check if it's an error message
+                if (data.result.startsWith('Error') || data.result.startsWith('Could not') || data.result.startsWith('Lyrics not available')) {
+                    resultsContainer.innerHTML = '<p class="error-message">' + data.result + '</p>';
+                } else {
+                    // Display lyrics with nice formatting
+                    resultsContainer.innerHTML = '<div class="lyrics-content">' + data.result + '</div>';
+                }
             } catch (error) {
-                resultsContainer.innerHTML = '<p>Error: ' + error.message + '</p>';
+                resultsContainer.innerHTML = '<p class="error-message">Error: ' + error.message + '</p>';
             }
         });
     }
